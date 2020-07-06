@@ -1,7 +1,11 @@
 //Listen to keyup event
 document.querySelector('#name-input').addEventListener('keyup', filterList)
+// Listen to blur event
+document.querySelector('#name-input').addEventListener('blur', addHeaders)
 
 function filterList(){
+    //Get rid of headers
+    removeHeaders()
     // get form input value
     var formInput= document.querySelector('#name-input').value.toLowerCase()
     // get name list
@@ -20,6 +24,20 @@ function filterList(){
     }
 }
 
+function removeHeaders(){
+    //get headers
+    let headers= document.querySelectorAll('.header')
+    headers.forEach((header)=>header.style.display='none')
+}
 
+function addHeaders(){
+    var formInput= document.querySelector('#name-input').value.toLowerCase()
+    if(formInput===''){
+        //get headers
+        let headers= document.querySelectorAll('.header')
+        headers.forEach((header)=>header.style.display='initial')
+    }
+    }
+   
 
 
